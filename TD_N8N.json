@@ -1,0 +1,388 @@
+{
+  "name": "TD_N8N",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "ALM",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        560,
+        64
+      ],
+      "id": "5d156a15-4f24-40ba-8b22-66120109130f",
+      "name": "alta-bebidas",
+      "webhookId": "52e252b7-05cb-413b-9b45-f99965d47401"
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1uC7qsphfEjxTcZJgRKwSpHWKwBgVPcPmICCOvSDP5o0",
+          "mode": "list",
+          "cachedResultName": "PruebaN8N",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uC7qsphfEjxTcZJgRKwSpHWKwBgVPcPmICCOvSDP5o0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "inventario",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uC7qsphfEjxTcZJgRKwSpHWKwBgVPcPmICCOvSDP5o0/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "producto": "={{ $json.query.producto }}",
+            "stock": "={{ $json.query.stock }}",
+            "precio": "={{ $json.query.precio }}",
+            "presentacion": "={{ $json.query.presentacion }}",
+            "categoria": "={{ $json.query.categoria }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "producto",
+              "displayName": "producto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "categoria",
+              "displayName": "categoria",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "presentacion",
+              "displayName": "presentacion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "precio",
+              "displayName": "precio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "stock",
+              "displayName": "stock",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "headers",
+              "displayName": "headers",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "params",
+              "displayName": "params",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "query",
+              "displayName": "query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "body",
+              "displayName": "body",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "webhookUrl",
+              "displayName": "webhookUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "executionMode",
+              "displayName": "executionMode",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1056,
+        208
+      ],
+      "id": "5137796c-50a0-4208-b448-caae4972ea39",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleApi": {
+          "id": "qStJ1Wx9Y9z460U2",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "documentId": {
+          "__rl": true,
+          "value": "1uC7qsphfEjxTcZJgRKwSpHWKwBgVPcPmICCOvSDP5o0",
+          "mode": "list",
+          "cachedResultName": "PruebaN8N",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uC7qsphfEjxTcZJgRKwSpHWKwBgVPcPmICCOvSDP5o0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "inventario",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uC7qsphfEjxTcZJgRKwSpHWKwBgVPcPmICCOvSDP5o0/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1056,
+        -16
+      ],
+      "id": "f8c9daa7-0cfc-460b-85c0-cb23766bea6c",
+      "name": "Get row(s) in sheet",
+      "executeOnce": false,
+      "retryOnFail": false,
+      "alwaysOutputData": false,
+      "notesInFlow": false,
+      "credentials": {
+        "googleApi": {
+          "id": "qStJ1Wx9Y9z460U2",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "79d8f32a-77c6-4b91-b70d-c5be9728fe7e",
+                    "leftValue": "={{$json.query.accion}}",
+                    "rightValue": "0",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "a0aba916-d47a-45ff-aabd-f01712c21ae0",
+                    "leftValue": "={{$json.query.accion}}",
+                    "rightValue": "1",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        784,
+        64
+      ],
+      "id": "4da299e4-0fd6-4e24-b749-f2ea686785a4",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        1456,
+        -16
+      ],
+      "id": "c20b10ff-4981-4ba4-98b3-65876da033d9",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map(item => {\n  return {\n    json: {\n      producto: item.json.producto,\n      categoria: item.json.categoria,\n      presentacion: item.json.presentacion,\n      stock: item.json.stock,\n      precio: item.json.precio\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1264,
+        -16
+      ],
+      "id": "4486f4e7-90ea-4180-b8fa-772e835fdf6c",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "alta-bebidas": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "5bf3eab1-227b-4f16-9ea5-ae6a9bdf8ae1",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "369d48fdf07bea106eac72ab636ed9060891e4c95fc7e4291bb7a1728ee3cedb"
+  },
+  "id": "DyIXPXEvOS27wmB8",
+  "tags": []
+}
