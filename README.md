@@ -14,7 +14,9 @@ Este repositorio contiene la integración de una aplicación móvil desarrollada
 ## 📄 Documentación del Proceso
 Siguiendo los requerimientos de la consigna, se ha generado una guía detallada paso a paso que documenta la configuración del entorno, la creación de credenciales y el flujo de los datos.
 
-👉 **[Haga clic aquí para ver la Documentación en Google Docs](https://docs.google.com/document/d/18xEEFwtDNuUyxajxIomVVXGko5F3AgC__rCKxg5NMoQ/edit?usp=sharing)**
+👉 **[Haga clic aquí para ver la Documentación en Google Docs](https://docs.google.com/document/d/18xEEFwtDNuUyxajxIomVVXGko5F3AgC__rCKxg5NMoQ/edit?usp=sharing)** 
+
+📹 **[Haga clic aquí para ver la evidencia del funcionamiento](https://youtu.be/GmS1S8u2cuw)** 
 
 ### Resumen de lo documentado en el archivo:
 1. **Configuración de Red e Infraestructura:** Levantamiento de n8n en Docker y apertura de puertos mediante el túnel SSH desde Linux Mint.
