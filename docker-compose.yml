@@ -1,0 +1,59 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: n8n_postgres 
+    restart: always
+    environment:
+      - POSTGRES_USER=n8n_user
+      - POSTGRES_PASSWORD=Demo1234
+      - POSTGRES_DB=n8n_db
+    volumes:
+      - db_storage:/var/lib/postgresql/data
+    networks:
+      - n8n_network 
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U n8n_user -d n8n_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: n8n_app
+    restart: always
+    ports:
+      - "5678:5678"
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+    extra_hosts:
+      - "host.vm.internal:host-gateway" 
+    networks:
+      - n8n_network   
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=db
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=n8n_db
+      - DB_POSTGRESDB_USER=n8n_user
+      - DB_POSTGRESDB_PASSWORD=Demo1234
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - N8N_ENV=development
+      - N8N_COOKIES_SECURE=false
+      - N8N_COOKIES_SAME_SITE=lax
+      - N8N_DISABLE_VERSION_CHECK=true
+    volumes:
+      - n8n_storage:/home/node/.n8n
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db_storage:
+  n8n_storage:
+
+networks:
+  n8n_network:
+    driver: bridge
